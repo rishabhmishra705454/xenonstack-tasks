@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# internsctl - Custom Linux command 
+#created by Rishabh Mishra
+# Version: v0.1.0
+
+
+# Function to display help message
+show_help() {
+    echo "Usage: $0 {cpu|memory|user|file} <sub-command> [options]"
+    echo "Options:"
+    echo "  --help                Display this help message"
+    echo "  --version             Display version information"
+    exit 0
+}
+
+# Check for options
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --help)
+            show_help
+            ;;
+        --version)
+            echo "internsctl v0.1.0"
+            exit 0
+            ;;
+        *)
+            break
+            ;;
+    esac
+    shift
+done
+
+# Ensure a sub-command is provided
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 {cpu|memory|user|file} <sub-command>"
+    exit 1
+fi
+
+# Capture the first argument as the main category
+category=$1
+shift  
+
+case "$category" in
+    cpu)
+        ./cpu.sh "$@"
+        ;;
+    memory)
+        ./memory.sh "$@"
+        ;;
+    user)
+        ./user.sh "$@"
+        ;;
+    file)
+        ./file.sh "$@"
+        ;;
+    *)
+        echo "Invalid category: $category"
+        echo "Usage: $0 {cpu|memory|user|file} <sub-command>"
+        exit 1
+        ;;
+esac
