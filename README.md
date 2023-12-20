@@ -8,6 +8,8 @@
 - Email - Rishabhmishra8118@gmail.com 
 - phone - 7651824079
 
+## Projetct 1  - Branch 2 ( Linux Custom Commands )
+
 ## Project 2 
 ### Ecomerce Website 
 - **Technology Used**  -   React Js (Frontend) , Node Js +Express Js( Backend ) 
